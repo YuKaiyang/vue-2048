@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div>
     {{ number }}
   </div>
 </template>
@@ -8,11 +8,7 @@
 export default {
   props: {
     number: {
-      type: Number,
-      required: true
-    },
-    index: {
-      type: Number,
+      type: [String, Number],
       required: true
     }
   }

@@ -1,32 +1,30 @@
 <template>
   <div class="container">
     <Node 
-    v-for="node in nodes" 
-    :key="node" 
-    :index="node"
-    :number="node"
+    v-for="(number, index) in numbers" 
+    :key="index"
+    :number="number===0?'':number"
     />
   </div>
 </template>
 
 <script>
 import Node from "./Node.vue";
+import { mapState } from "vuex";
 
-const nodes = [];
+const numbers = [];
 
-for (let i = 1; i < 17; i++) {
-  nodes.push(i);
+for (let i = 0; i < 16; i++) {
+  numbers.push(i);
 }
 
 export default {
   components: {
     Node
   },
-  data() {
-    return {
-      nodes
-    };
-  },
+  computed: mapState({
+    numbers: "numbers"
+  }),
   methods: {}
 };
 </script>
