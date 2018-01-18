@@ -10,15 +10,9 @@ const store = new Vuex.Store({
   },
   mutations: {
     start(state) {
-      let count = []
-      while (count.length !== 4) {
-        const randomIndex = Math.floor(Math.random() * 16)
-        if (count.indexOf(randomIndex) === -1) {
-          count.push(randomIndex)
-        }
-      }
-      count.forEach(i => {
-        state.numbers[i] = 2
+      const newNumber = news(state.numbers, 4)
+      newNumber.forEach(i => {
+        Vue.set(state.numbers, i, 2)
       })
     },
     moveLeft(state) {
