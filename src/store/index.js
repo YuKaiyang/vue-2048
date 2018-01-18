@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {check, news} from './math'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,6 @@ const store = new Vuex.Store({
   mutations: {
     start(state) {
       let count = []
-      let newState = {...state}
       while (count.length !== 4) {
         const randomIndex = Math.floor(Math.random() * 16)
         if (count.indexOf(randomIndex) === -1) {
@@ -18,12 +18,10 @@ const store = new Vuex.Store({
         }
       }
       count.forEach(i => {
-        newState.numbers[i] = 2
+        state.numbers[i] = 2
       })
-      return newState
     },
     moveLeft(state) {
-
     },
     moveRight(state) {
 
@@ -33,6 +31,21 @@ const store = new Vuex.Store({
     },
     moveDown(state) {
 
+    },
+    newNumber(state) {
+      let empty = check(state.numbers)
+
+      if (empty > 1) {
+        const newNumber = news(state.numbers, 2)
+        newNumber.forEach(i => {
+          Vue.set(state.numbers, i, 2)
+        })
+      } else if (empty === 1) {
+        const newNumber = news(state.numbers, 1)
+        newNumber.forEach(i => {
+          Vue.set(state.numbers, i, 2)
+        })
+      }
     }
   }
 })

@@ -7,10 +7,22 @@
 
 <script>
 import Container from "./components/Container.vue";
+import { mapMutations } from "vuex";
 
 export default {
   components: {
     Container
+  },
+  mounted() {
+    document.addEventListener("keydown", e => {
+      if (e.key === "a" || e.key === "ArrowLeft") {
+        //this.moveLeft();
+        this.newNumber();
+      }
+    });
+  },
+  methods: {
+    ...mapMutations(["moveLeft", "newNumber"])
   }
 };
 </script>
