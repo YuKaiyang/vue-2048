@@ -17,16 +17,16 @@ export default {
     document.addEventListener("keydown", e => {
       if (e.key === "a" || e.key === "ArrowLeft") {
         this.moveLeft();
-        this.newNumber();
+        this.newNumbers();
       } else if (e.key === "d" || e.key === "ArrowRight") {
         this.moveRight();
-        this.newNumber();
+        this.newNumbers();
       } else if (e.key === "w" || e.key === "ArrowUp") {
         this.moveUp();
-        this.newNumber();
+        this.newNumbers();
       } else if (e.key === "s" || e.key === "ArrowDown") {
         this.moveDown();
-        this.newNumber();
+        this.newNumbers();
       }
     });
   },
@@ -36,7 +36,7 @@ export default {
       "moveRight",
       "moveUp",
       "moveDown",
-      "newNumber"
+      "newNumbers"
     ])
   }
 };
