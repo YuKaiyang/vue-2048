@@ -16,13 +16,28 @@ export default {
   mounted() {
     document.addEventListener("keydown", e => {
       if (e.key === "a" || e.key === "ArrowLeft") {
-        //this.moveLeft();
+        this.moveLeft();
+        this.newNumber();
+      } else if (e.key === "d" || e.key === "ArrowRight") {
+        this.moveRight();
+        this.newNumber();
+      } else if (e.key === "w" || e.key === "ArrowUp") {
+        this.moveUp();
+        this.newNumber();
+      } else if (e.key === "s" || e.key === "ArrowDown") {
+        this.moveDown();
         this.newNumber();
       }
     });
   },
   methods: {
-    ...mapMutations(["moveLeft", "newNumber"])
+    ...mapMutations([
+      "moveLeft",
+      "moveRight",
+      "moveUp",
+      "moveDown",
+      "newNumber"
+    ])
   }
 };
 </script>
